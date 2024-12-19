@@ -1,0 +1,16 @@
+﻿@model mvcblzr1.Models.HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@Model.Title</h1>
+    <p>The message is this from parent: @Model.Message</p>
+</div>
+
+
+@(await Html.RenderComponentAsync<mvcblzr1.Blazor.Components.Clients>(
+    RenderMode.ServerPrerendered, 
+    new { ParentToChildParam = Model.Message }
+    )
+)

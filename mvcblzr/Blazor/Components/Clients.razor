@@ -1,0 +1,20 @@
+@using Microsoft.AspNetCore.Components.Web
+@namespace mvcblzr1.Blazor.Components
+
+<h1>this is the Clients blazor component with param:</h1>
+<input type="text" @bind="ParentToChildParam" />
+
+<button @onclick="addToCount">this button has been clicked @currentCount times</button>
+
+@code {
+    [Parameter]
+    public string? ParentToChildParam { get; set; }
+
+    private int currentCount = 0;
+    private async Task addToCount()
+    {
+        currentCount++;
+        await Task.Delay(1);
+        Console.WriteLine(ParentToChildParam);
+    }
+}
