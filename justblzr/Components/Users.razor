@@ -1,0 +1,74 @@
+@using features.Actions
+@using features.Models
+@rendermode InteractiveServer
+<h3>this is the users component</h3>
+<p>And we have @users.Count users</p>
+<hr>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Delete</th>
+        </tr>
+        
+    </thead>
+    <tbody>
+        @foreach (var user in users)
+        {
+            <tr>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+                <td>@user.Password</td>
+                <td><button @onclick="() => DeleteUser(user.Id)">Delete</button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr>
+<p>..but you can add more here:</p>
+<div id="newUser">
+    <input type="text" placeholder="Enter new user name" @bind="newUser.Name" />
+    <input type="email" placeholder="Enter new user email" @bind="newUser.Email" />
+    <input type="password" placeholder="Enter new password" @bind="newUser.Password" />
+    <button @onclick="AddUser">Add User</button>
+</div>
+
+
+@code {
+    private User newUser = new User();
+    private List<User> users = new List<User>();
+    [Inject] private UserActions UserActions { get; set; }
+    
+    protected override async Task OnInitializedAsync()
+    {
+        users = await UserActions.GetUsersAsync();
+    }
+
+    async Task AddUser()
+    {
+        await UserActions.CreateUserAsync(newUser);
+        newUser = new User();
+        users = await UserActions.GetUsersAsync();
+    }
+
+    async Task DeleteUser(int id)
+    {
+        await UserActions.DeleteUserAsync(id);
+        users = await UserActions.GetUsersAsync();
+    }
+}
+
+<style>
+    #newUser {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        margin: 20px 0;
+    }
+
+    #newUser input {
+        margin: 5px 0;
+    }
+</style>

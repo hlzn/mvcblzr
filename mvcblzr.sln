@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mvcblzr1", "mvcblzr\mvcblzr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "justblzr", "justblzr\justblzr.csproj", "{9EEB790A-E7CE-4A0D-A384-CB633B7A99D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "justmvc", "justmvc\justmvc.csproj", "{129241EE-8D9B-4B6A-94C6-C3B8B6C05063}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "features", "features\features.csproj", "{65D86DC0-647E-4536-9838-CE9C96134DB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{9EEB790A-E7CE-4A0D-A384-CB633B7A99D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EEB790A-E7CE-4A0D-A384-CB633B7A99D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EEB790A-E7CE-4A0D-A384-CB633B7A99D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{129241EE-8D9B-4B6A-94C6-C3B8B6C05063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{129241EE-8D9B-4B6A-94C6-C3B8B6C05063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{129241EE-8D9B-4B6A-94C6-C3B8B6C05063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{129241EE-8D9B-4B6A-94C6-C3B8B6C05063}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65D86DC0-647E-4536-9838-CE9C96134DB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65D86DC0-647E-4536-9838-CE9C96134DB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65D86DC0-647E-4536-9838-CE9C96134DB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65D86DC0-647E-4536-9838-CE9C96134DB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

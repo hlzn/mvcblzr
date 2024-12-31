@@ -1,6 +1,18 @@
+using features.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Sqlite;
+using features.Actions;
+
 var builder = WebApplication.CreateBuilder(args);
 //MVC
 builder.Services.AddControllersWithViews();
+
+//DB
+builder.Services.AddDbContext<BlzrDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("sqlServerConnectionString")));
+
+//Services
+builder.Services.AddScoped<UserActions>();
 
 //Blazor
 builder.Services.AddRazorComponents()

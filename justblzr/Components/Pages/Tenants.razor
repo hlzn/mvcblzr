@@ -1,0 +1,53 @@
+@page "/blazortenants"
+@using features.Models
+@using features.Actions
+
+<h2>This is the tenants Blazor page</h2>
+
+<h3>Here are the Tenants</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tenant in tenants)
+        {
+            <tr>
+                <td> <input type="radio" name="tenants" id="tenant-@tenant.Id" value="@tenant.Id"> </td>
+                <td>@tenant.Id</td>
+                <td>@tenant.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr>
+<div class="tenantForm">
+    <input type="text" placeholder="Enter new tenant name" @bind="newTenant.Name" />
+    <button @onclick="AddTenant">Add Tenant</button>
+</div>
+<hr>
+<h3>And here are your users for the selected Tenant</h3>
+@code {
+    private List<Tenant> tenants = new List<Tenant>();
+    [Inject] private TenantActions TenantActions { get; set; }
+    private Tenant newTenant = new Tenant();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        tenants = await TenantActions.GetTenantsAsync();
+    }
+
+    protected async Task AddTenant()
+    {
+        await TenantActions.CreateTenantAsync(newTenant);
+        newTenant = new Tenant();
+        tenants = await TenantActions.GetTenantsAsync();
+    }
+
+}
