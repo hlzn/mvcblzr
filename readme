@@ -1,0 +1,7 @@
+Projects to demonstrate mixing blazor and MVC
+1) mvcblzr: an mvc project that combines the usage of an mvc project with blazor components. Please note that blazor works as component only, they cant have their own page.
+2) justblzr: a blazor project with simple blazor components
+3) justmvc: an mvc project that references and uses the justblzr project and uses its own endpoints as well
+4) features: a shared data access, services and domain project
+
+in order to run it locally just clone it, have a db running on default port 1433 and a database named blzrdb with the associated (or corrected username), then just run dotnet ef database update
