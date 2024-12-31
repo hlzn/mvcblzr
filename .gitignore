@@ -1,3 +1,5 @@
 */bin/*
 */obj/*
 */wwwroot/*
+!*/wwwroot/justblzr.styles.css
+justmvc/appsettings.Development.json
