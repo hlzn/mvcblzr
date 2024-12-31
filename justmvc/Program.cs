@@ -13,6 +13,7 @@ builder.Services.AddDbContext<BlzrDbContext>(options =>
 
 //Services
 builder.Services.AddScoped<UserActions>();
+builder.Services.AddScoped<TenantActions>();
 
 //Blazor
 builder.Services.AddRazorComponents()
